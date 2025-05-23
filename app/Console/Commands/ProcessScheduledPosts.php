@@ -14,7 +14,7 @@ class ProcessScheduledPosts extends Command
     public function handle()
     {
         $posts = Post::where('status', Post::STATUS_SCHEDULED)
-            ->where('scheduled_time', '<=', now())
+            ->where('scheduled_time', '<=', now()->format('Y-m-d H:i:s'))
             ->get();
 
         foreach ($posts as $post) {
@@ -25,7 +25,7 @@ class ProcessScheduledPosts extends Command
                 $this->error("Failed to process post {$post->id}: " . $e->getMessage());
             }
         }
-
+        $this->info("the time now is " . now()->format('Y-m-d H:i:s'));
         $this->info("Processed {$posts->count()} posts");
     }
 
@@ -35,9 +35,9 @@ class ProcessScheduledPosts extends Command
         foreach ($post->platforms as $platform) {
             // Simulate platform-specific validation
             if ($this->validatePlatformRequirements($post, $platform)) {
-                // Update platform status
-                $post->platforms()->updateExistingPivot($platform->id, [
-                    'platform_status' => 'published'
+                // Update post status directly
+                $post->update([
+                    'status' => Post::STATUS_PUBLISHED
                 ]);
                 
                 Log::info("Published post {$post->id} to {$platform->name}");
@@ -45,9 +45,6 @@ class ProcessScheduledPosts extends Command
                 Log::warning("Failed to publish post {$post->id} to {$platform->name} - validation failed");
             }
         }
-
-        // Update post status
-        $post->update(['status' => Post::STATUS_PUBLISHED]);
     }
 
     protected function validatePlatformRequirements(Post $post, $platform): bool

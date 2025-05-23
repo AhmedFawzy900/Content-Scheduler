@@ -1,3 +1,5 @@
+<?php
+
 namespace Database\Seeders;
 
 use App\Models\Platform;
@@ -11,22 +13,26 @@ class PlatformSeeder extends Seeder
             [
                 'name' => 'Twitter',
                 'type' => 'twitter',
-                'description' => 'Share short updates and engage with your audience'
+                'status' => 'active',
+                'user_id' => 1
             ],
             [
                 'name' => 'LinkedIn',
                 'type' => 'linkedin',
-                'description' => 'Professional networking and business content'
+                'status' => 'active',
+                'user_id' => 1
             ],
             [
                 'name' => 'Instagram',
                 'type' => 'instagram',
-                'description' => 'Visual content and stories'
+                'status' => 'active',
+                'user_id' => 1
             ],
             [
                 'name' => 'Facebook',
                 'type' => 'facebook',
-                'description' => 'Connect with friends and share content'
+                'status' => 'active',
+                'user_id' => 1
             ]
         ];
 
