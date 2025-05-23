@@ -73,26 +73,26 @@ This command:
 
 ## API Endpoints
 
+### Authentication
+- `POST /api/register` - Register a new user
+- `POST /api/login` - Login user
+- `POST /api/logout` - Logout user (requires authentication)
+
+### User Profile
+- `GET /api/user` - Get user profile
+- `POST /api/user` - Update user profile
+
 ### Posts
-- `GET /api/posts` - List all posts
-- `POST /api/posts` - Create a new post
-- `GET /api/posts/{id}` - Get a specific post
-- `PUT /api/posts/{id}` - Update a post
-- `DELETE /api/posts/{id}` - Delete a post
+- `GET /api/posts-api` - List all posts
+- `POST /api/posts-api` - Create a new post
+- `GET /api/posts-api/{id}` - Get a specific post
+- `PUT /api/posts-api/{id}` - Update a post
+- `DELETE /api/posts-api/{id}` - Delete a post
+- `GET /api/posts/analytics` - Get post analytics
 
 ### Platforms
 - `GET /api/platforms` - List available platforms
-- `POST /api/platforms/{id}/toggle` - Toggle platform activation
-
-### Scheduled Posts
-- `GET /api/scheduled-posts` - List all scheduled posts
-- `POST /api/scheduled-posts` - Schedule a new post
-- `GET /api/scheduled-posts/{id}` - Get a specific scheduled post
-- `PUT /api/scheduled-posts/{id}` - Update a scheduled post
-- `DELETE /api/scheduled-posts/{id}` - Delete a scheduled post
-
-### Post Processing
-- `POST /api/process-scheduled` - Manually trigger scheduled posts processing
+- `PUT /api/platforms/{platform}/toggle-active` - Toggle platform activation
 
 ## Approach and Trade-offs
 
@@ -144,6 +144,3 @@ This command:
 4. Push to the branch
 5. Create a new Pull Request
 
-## License
-
-This project is licensed under the MIT License. 
