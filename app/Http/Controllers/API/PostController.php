@@ -20,22 +20,18 @@ class PostController extends Controller
         $this->postService = $postService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $posts = $this->postService->getAll();
+        $filters = $request->only(['status', 'date']);
+        $posts = $this->postService->getAll($filters, 10); // 10 items per page
         return PostResource::collection($posts);
     }
 
-    public function create()
-    {
-        $platforms = Platform::all();
-        return view('posts.create', compact('platforms'));
-    }
-
+   
     public function store(CreatePostRequest $request)
     {
         $post = $this->postService->createPost($request->validated(), Auth::user());
-        return redirect()->route('dashboard')->with('success', 'Post created successfully.');
+        return response()->json(['success' => true, 'post' => new PostResource($post)]);
     }
 
     public function show(Post $post)
@@ -43,22 +39,17 @@ class PostController extends Controller
         return new PostResource($post);
     }
 
-    public function edit(Post $post)
+    public function update(CreatePostRequest $request, Post $posts_api)
     {
-        $platforms = Platform::all();
-        return view('posts.edit', compact('post', 'platforms'));
+
+        $post = $this->postService->updatePost($posts_api, $request->validated());
+        return response()->json(['success' => true,'post' => new PostResource($post)]);
     }
 
-    public function update(CreatePostRequest $request, Post $post)
+    public function destroy(Post $posts_api)
     {
-        $post = $this->postService->updatePost($post, $request->validated());
-        return redirect()->route('dashboard')->with('success', 'Post updated successfully.');
-    }
-
-    public function destroy(Post $post)
-    {
-        $this->postService->delete($post->id);
-        return redirect()->route('dashboard')->with('success', 'Post deleted successfully.');
+        $this->postService->delete($posts_api->id);
+        return response()->json(['success' => true,'message' => "Post deleted successfully!"]);
     }
 
     public function analytics()

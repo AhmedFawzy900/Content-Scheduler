@@ -16,6 +16,12 @@ class PlatformService implements PlatformServiceInterface
         return Platform::where('user_id', $user->id)->get();
     }
 
+    public function getActive(): Collection
+    {
+        $user = auth()->user();
+        return Platform::active()->where('user_id', $user->id)->get();
+    }
+
     /**
      * Get connected platforms for a user
      */

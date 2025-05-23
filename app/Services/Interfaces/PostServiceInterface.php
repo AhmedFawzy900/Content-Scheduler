@@ -12,7 +12,8 @@ interface PostServiceInterface extends BaseServiceInterface
     /**
      * Get all posts with optional filters
      */
-    public function getAll(array $filters = []): LengthAwarePaginator;
+     public function getAll(array $filters = []): LengthAwarePaginator;
+
 
     /**
      * Get all posts for a user

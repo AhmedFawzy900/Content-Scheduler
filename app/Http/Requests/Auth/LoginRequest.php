@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Platform;
+namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePlatform extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,11 +21,9 @@ class StorePlatform extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'name' => 'required|string|max:255',
-            'type' => 'required|string|in:twitter,facebook,instagram,linkedin',
-            'icon' => 'nullable|image|max:2048',
-            'status' => 'nullable',
+        return[
+            'email' => 'required|email',
+            'password' => 'required',
         ];
     }
 }

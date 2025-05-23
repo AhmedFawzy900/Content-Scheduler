@@ -14,7 +14,7 @@ class CreatePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-             'title' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
             'content' => 'required|string',
             'image_url' => 'nullable|image|max:2048',
             'scheduled_time' => 'required|date|after:now',

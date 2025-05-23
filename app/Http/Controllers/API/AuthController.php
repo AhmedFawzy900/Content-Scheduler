@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\RegisterRequest;
+use App\Http\Requests\Auth\UpdateProfile;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -12,13 +15,9 @@ use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
+        $request->validated();
 
         $user = User::create([
             'name' => $request->name,
@@ -34,12 +33,9 @@ class AuthController extends Controller
         ], 201);
     }
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+        $request->validated();
 
         if (!Auth::attempt($request->only('email', 'password'))) {
             throw ValidationException::withMessages([
@@ -51,7 +47,7 @@ class AuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
-            // 'user' => new UserResource($user),
+            'user' => new UserResource($user),
             'token' => $token
         ]);
     }
@@ -65,5 +61,15 @@ class AuthController extends Controller
     public function profile(Request $request)
     {
         return new UserResource($request->user());
+    }
+
+    public function updateProfile(UpdateProfile $request)
+    {
+        $request->validated();
+
+        $user = auth()->user();
+        $user->update($request->only('name', 'email'));
+
+        return new UserResource($user);
     }
 } 

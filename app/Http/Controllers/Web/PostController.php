@@ -25,14 +25,14 @@ class PostController extends Controller
     {
         $filters = $request->only(['status', 'date', 'platform']);
         $posts = $this->postService->getAll($filters, 10); // 10 items per page
-        $platforms = $this->platformService->getAll();
+        $platforms = $this->platformService->getActive();
         
         return view('posts.index', compact('posts', 'platforms', 'filters'));
     }
 
     public function create()
     {
-        $platforms = $this->platformService->getAll();
+        $platforms = $this->platformService->getActive();
         return view('posts.form', compact('platforms'));
     }
 

@@ -1,0 +1,1043 @@
+{
+	"info": {
+		"_postman_id": "6132948b-7eb9-4ab2-8d48-1f4b74647961",
+		"name": "content schedular",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32953197",
+		"_collection_link": "https://amtalelk-v2.postman.co/workspace/ba7b687b-b608-4227-806e-0df238600388/collection/32953197-6132948b-7eb9-4ab2-8d48-1f4b74647961?action=share&source=collection_link&creator=32953197"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "XSRF-TOKEN=eyJpdiI6InZuYXUvSngrdDV3aDMvVE01c3RoV1E9PSIsInZhbHVlIjoiU3ZrQmV4ditVbjdwc1Q4OEpQWTY1dDI4UjN5OHBreFM3Tzl4M1VmUk5NaVNqemM5SjFSb09tcVpkSCtDcng3djRBN3VYaldURVZLa253N09SaGdxV2F5N3MvUllQTkdTYjUxaVFqQThLNzJycWhaQXlYbGZ6TUMrbmhmaE9CMFQiLCJtYWMiOiI5OTAzZDY1NzY4YjQzNzdlNThiZWE0MzU4MTIyMTFkMGVlNjkzMzU1MTI3ZWM5N2U4OWJiNzRkZDA1Yjk1M2E1IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6IkFaaS8xaVhoOGZxeWg5N3Y0dWtrVmc9PSIsInZhbHVlIjoiMTk4VWcyY3VZa045NmFZTWpkK1lpb3N4VTRTNVN0MmdBTUsvOGhGN2llR0VnNHVpajBqcWR3UHZydFR6dVo0Nm85cEUrOEMvKzViTm9EbG1UMjJsei9iQ0dZR0ZnREZqT2FSR0NQUUZ4ZDZPTG5hQlh4a2RKbXNDUWV6YW5kSmMiLCJtYWMiOiJhMmZiMWY0NDc2OTVmOWU2MjM3N2RkYjI3M2I2NjdkODQ0Zjc3YTQzMDgzZWJjN2M4MTI3YTkxZjZkZjBhNmQxIiwidGFnIjoiIn0%3D",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "0",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{link}}/login",
+							"host": [
+								"{{link}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "XSRF-TOKEN=eyJpdiI6InZuYXUvSngrdDV3aDMvVE01c3RoV1E9PSIsInZhbHVlIjoiU3ZrQmV4ditVbjdwc1Q4OEpQWTY1dDI4UjN5OHBreFM3Tzl4M1VmUk5NaVNqemM5SjFSb09tcVpkSCtDcng3djRBN3VYaldURVZLa253N09SaGdxV2F5N3MvUllQTkdTYjUxaVFqQThLNzJycWhaQXlYbGZ6TUMrbmhmaE9CMFQiLCJtYWMiOiI5OTAzZDY1NzY4YjQzNzdlNThiZWE0MzU4MTIyMTFkMGVlNjkzMzU1MTI3ZWM5N2U4OWJiNzRkZDA1Yjk1M2E1IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6IkFaaS8xaVhoOGZxeWg5N3Y0dWtrVmc9PSIsInZhbHVlIjoiMTk4VWcyY3VZa045NmFZTWpkK1lpb3N4VTRTNVN0MmdBTUsvOGhGN2llR0VnNHVpajBqcWR3UHZydFR6dVo0Nm85cEUrOEMvKzViTm9EbG1UMjJsei9iQ0dZR0ZnREZqT2FSR0NQUUZ4ZDZPTG5hQlh4a2RKbXNDUWV6YW5kSmMiLCJtYWMiOiJhMmZiMWY0NDc2OTVmOWU2MjM3N2RkYjI3M2I2NjdkODQ0Zjc3YTQzMDgzZWJjN2M4MTI3YTkxZjZkZjBhNmQxIiwidGFnIjoiIn0%3D",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "0",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ahmed@gm.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "ahmed",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{link}}/register",
+							"host": [
+								"{{link}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User management",
+			"item": [
+				{
+					"name": "get my profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "XSRF-TOKEN=eyJpdiI6InNiNVVRVDBadzJDVHJqNUJ0dUd1d2c9PSIsInZhbHVlIjoiZjQ4eWU4aDk3cnNuU1dsZThTVllqd0Z4QWpya2NNdVpWbDhLMXpYY0ZhRGpsOEJPdWpEeFZEeUo3akZFNlpSOFBBcXp4SzAyc1p6S3F5a2dFVGloYW1nc3U5UzFyTTJMMEZKaUVIU1BRdHZpNjgrdVh4Z2x3L09vbEdidzZaQnMiLCJtYWMiOiJkYmY2NzUwY2FjZTE3YWI4ZmUxM2Y4OTMwMzgxZWU5MTYzZTlhOTljOGI3Mjc2YWFjM2FlZmIzNDY3YTM3MzI4IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6ImZWNkxiODJFd3ROQTM4Qm52d2tEbXc9PSIsInZhbHVlIjoiREdwTXMrOHNIa0hNcUY2SlhFSkphc1crQlZ5dzdoR3JzSCtDUjNRa05xYkhGa1l0cmN0MzVnVVpTWUtIY0JWRlJaQzI4cDRSMlg5TWkzOFdIM3lEVkVFeHpTdkFyM3NnYlNDaENvemowWGRWNXdOcVJjeC9HdUxCU09GellkQW4iLCJtYWMiOiJmMWE4MmNhNDc1YjZkYzkyYjBiNjMwZDQ4MjY0N2E1NDJhMzM5OTdkYzM1ZDA3ZjQ2Nzg0ZWU1MzVkYzI2MGYwIiwidGFnIjoiIn0%3D",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{link}}/user",
+							"host": [
+								"{{link}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit my profile Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "XSRF-TOKEN=eyJpdiI6InNiNVVRVDBadzJDVHJqNUJ0dUd1d2c9PSIsInZhbHVlIjoiZjQ4eWU4aDk3cnNuU1dsZThTVllqd0Z4QWpya2NNdVpWbDhLMXpYY0ZhRGpsOEJPdWpEeFZEeUo3akZFNlpSOFBBcXp4SzAyc1p6S3F5a2dFVGloYW1nc3U5UzFyTTJMMEZKaUVIU1BRdHZpNjgrdVh4Z2x3L09vbEdidzZaQnMiLCJtYWMiOiJkYmY2NzUwY2FjZTE3YWI4ZmUxM2Y4OTMwMzgxZWU5MTYzZTlhOTljOGI3Mjc2YWFjM2FlZmIzNDY3YTM3MzI4IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6ImZWNkxiODJFd3ROQTM4Qm52d2tEbXc9PSIsInZhbHVlIjoiREdwTXMrOHNIa0hNcUY2SlhFSkphc1crQlZ5dzdoR3JzSCtDUjNRa05xYkhGa1l0cmN0MzVnVVpTWUtIY0JWRlJaQzI4cDRSMlg5TWkzOFdIM3lEVkVFeHpTdkFyM3NnYlNDaENvemowWGRWNXdOcVJjeC9HdUxCU09GellkQW4iLCJtYWMiOiJmMWE4MmNhNDc1YjZkYzkyYjBiNjMwZDQ4MjY0N2E1NDJhMzM5OTdkYzM1ZDA3ZjQ2Nzg0ZWU1MzVkYzI2MGYwIiwidGFnIjoiIn0%3D",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": " ahmed attia",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ahmed@gm.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{link}}/user",
+							"host": [
+								"{{link}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "get my posts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "XSRF-TOKEN=eyJpdiI6ImdHUGxRNXFTaEw0SGdPUDZDRjd5MEE9PSIsInZhbHVlIjoiMEdUMWV6TExrdVZJN1RzM3lkVnJQY3p0VmxvdU9kd0Nrd2hGMms5TEMwQURGc20zNU5heWVyL2F0OUh3ZVV3VWNjK3dRNVp6TjZEWVFOaGtvYy83Y3o0MmN2NTBGNGNaQ01TczVvVWZIdFVtZzNaMG9iUlAwN2F2dEJQY3lPLzUiLCJtYWMiOiJlYTlkYjRiMWRlNDcyNDMzMTYyMTM1ZTAwMzgwYjk5M2VhNmQxNmIzYzlmZDVhMGJiYjA1ZTU4MzAzNDlmZmYzIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6IkhiVkk2TStiMUtDdjNpOHBHTzVGZ1E9PSIsInZhbHVlIjoidlRBd0pxNzhXV1IxN2RjbWtNZktURjRKaVFxSEJPZG44Mnk1ZWlKTzBsRlJvMFpqQmVJMWdPNkdxV2kxb2ZnenJRSG56NlRsdzZuQSsyRjFPNWVUbzVnMGJnMmVpKzhRSG9mVWxYWlc5aFhYMWkvR0R6SjJoZW1XZ2RQeDlSUUYiLCJtYWMiOiJkYTI4MDM4NWM0ZmZmZmZlN2RiNDcwNDNhMWQyMzc5ZWVhMzExZTkzNDgyYmFlMTU5ZTNlNDcxODNlNzc5ODY5IiwidGFnIjoiIn0%3D",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{link}}/posts-api?status=draft&date=2025-05-24",
+							"host": [
+								"{{link}}"
+							],
+							"path": [
+								"posts-api"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "draft"
+								},
+								{
+									"key": "date",
+									"value": "2025-05-24"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post analytics",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "XSRF-TOKEN=eyJpdiI6ImdHUGxRNXFTaEw0SGdPUDZDRjd5MEE9PSIsInZhbHVlIjoiMEdUMWV6TExrdVZJN1RzM3lkVnJQY3p0VmxvdU9kd0Nrd2hGMms5TEMwQURGc20zNU5heWVyL2F0OUh3ZVV3VWNjK3dRNVp6TjZEWVFOaGtvYy83Y3o0MmN2NTBGNGNaQ01TczVvVWZIdFVtZzNaMG9iUlAwN2F2dEJQY3lPLzUiLCJtYWMiOiJlYTlkYjRiMWRlNDcyNDMzMTYyMTM1ZTAwMzgwYjk5M2VhNmQxNmIzYzlmZDVhMGJiYjA1ZTU4MzAzNDlmZmYzIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6IkhiVkk2TStiMUtDdjNpOHBHTzVGZ1E9PSIsInZhbHVlIjoidlRBd0pxNzhXV1IxN2RjbWtNZktURjRKaVFxSEJPZG44Mnk1ZWlKTzBsRlJvMFpqQmVJMWdPNkdxV2kxb2ZnenJRSG56NlRsdzZuQSsyRjFPNWVUbzVnMGJnMmVpKzhRSG9mVWxYWlc5aFhYMWkvR0R6SjJoZW1XZ2RQeDlSUUYiLCJtYWMiOiJkYTI4MDM4NWM0ZmZmZmZlN2RiNDcwNDNhMWQyMzc5ZWVhMzExZTkzNDgyYmFlMTU5ZTNlNDcxODNlNzc5ODY5IiwidGFnIjoiIn0%3D",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{link}}/posts/analytics",
+							"host": [
+								"{{link}}"
+							],
+							"path": [
+								"posts",
+								"analytics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "XSRF-TOKEN=eyJpdiI6ImdHUGxRNXFTaEw0SGdPUDZDRjd5MEE9PSIsInZhbHVlIjoiMEdUMWV6TExrdVZJN1RzM3lkVnJQY3p0VmxvdU9kd0Nrd2hGMms5TEMwQURGc20zNU5heWVyL2F0OUh3ZVV3VWNjK3dRNVp6TjZEWVFOaGtvYy83Y3o0MmN2NTBGNGNaQ01TczVvVWZIdFVtZzNaMG9iUlAwN2F2dEJQY3lPLzUiLCJtYWMiOiJlYTlkYjRiMWRlNDcyNDMzMTYyMTM1ZTAwMzgwYjk5M2VhNmQxNmIzYzlmZDVhMGJiYjA1ZTU4MzAzNDlmZmYzIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6IkhiVkk2TStiMUtDdjNpOHBHTzVGZ1E9PSIsInZhbHVlIjoidlRBd0pxNzhXV1IxN2RjbWtNZktURjRKaVFxSEJPZG44Mnk1ZWlKTzBsRlJvMFpqQmVJMWdPNkdxV2kxb2ZnenJRSG56NlRsdzZuQSsyRjFPNWVUbzVnMGJnMmVpKzhRSG9mVWxYWlc5aFhYMWkvR0R6SjJoZW1XZ2RQeDlSUUYiLCJtYWMiOiJkYTI4MDM4NWM0ZmZmZmZlN2RiNDcwNDNhMWQyMzc5ZWVhMzExZTkzNDgyYmFlMTU5ZTNlNDcxODNlNzc5ODY5IiwidGFnIjoiIn0%3D",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"ahmed\",\r\n    \"content\":\"content\",\r\n    \"scheduled_time\":\"2025-05-24 23:06:00\",\r\n    \"platforms\":[3],\r\n    \"status\":\"scheduled\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{link}}/posts-api",
+							"host": [
+								"{{link}}"
+							],
+							"path": [
+								"posts-api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|9o9Nr62BufVlTdm8xFxPfCKeO4C6WkXrsT6ERwt5c1548b75",
+								"name": "authorization",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"ahmed post update\",\r\n    \"content\":\"content\",\r\n    \"scheduled_time\":\"2025-05-24 23:06:00\",\r\n    \"platforms\":[3],\r\n    \"status\":\"scheduled\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{link}}/posts-api/13",
+							"host": [
+								"{{link}}"
+							],
+							"path": [
+								"posts-api",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|9o9Nr62BufVlTdm8xFxPfCKeO4C6WkXrsT6ERwt5c1548b75",
+								"name": "authorization",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{link}}/posts-api/13",
+							"host": [
+								"{{link}}"
+							],
+							"path": [
+								"posts-api",
+								"13"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Platform",
+			"item": [
+				{
+					"name": "get all platforms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "XSRF-TOKEN=eyJpdiI6ImdHUGxRNXFTaEw0SGdPUDZDRjd5MEE9PSIsInZhbHVlIjoiMEdUMWV6TExrdVZJN1RzM3lkVnJQY3p0VmxvdU9kd0Nrd2hGMms5TEMwQURGc20zNU5heWVyL2F0OUh3ZVV3VWNjK3dRNVp6TjZEWVFOaGtvYy83Y3o0MmN2NTBGNGNaQ01TczVvVWZIdFVtZzNaMG9iUlAwN2F2dEJQY3lPLzUiLCJtYWMiOiJlYTlkYjRiMWRlNDcyNDMzMTYyMTM1ZTAwMzgwYjk5M2VhNmQxNmIzYzlmZDVhMGJiYjA1ZTU4MzAzNDlmZmYzIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6IkhiVkk2TStiMUtDdjNpOHBHTzVGZ1E9PSIsInZhbHVlIjoidlRBd0pxNzhXV1IxN2RjbWtNZktURjRKaVFxSEJPZG44Mnk1ZWlKTzBsRlJvMFpqQmVJMWdPNkdxV2kxb2ZnenJRSG56NlRsdzZuQSsyRjFPNWVUbzVnMGJnMmVpKzhRSG9mVWxYWlc5aFhYMWkvR0R6SjJoZW1XZ2RQeDlSUUYiLCJtYWMiOiJkYTI4MDM4NWM0ZmZmZmZlN2RiNDcwNDNhMWQyMzc5ZWVhMzExZTkzNDgyYmFlMTU5ZTNlNDcxODNlNzc5ODY5IiwidGFnIjoiIn0%3D",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{link}}/platforms",
+							"host": [
+								"{{link}}"
+							],
+							"path": [
+								"platforms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "toggle platform active",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "XSRF-TOKEN=eyJpdiI6ImdHUGxRNXFTaEw0SGdPUDZDRjd5MEE9PSIsInZhbHVlIjoiMEdUMWV6TExrdVZJN1RzM3lkVnJQY3p0VmxvdU9kd0Nrd2hGMms5TEMwQURGc20zNU5heWVyL2F0OUh3ZVV3VWNjK3dRNVp6TjZEWVFOaGtvYy83Y3o0MmN2NTBGNGNaQ01TczVvVWZIdFVtZzNaMG9iUlAwN2F2dEJQY3lPLzUiLCJtYWMiOiJlYTlkYjRiMWRlNDcyNDMzMTYyMTM1ZTAwMzgwYjk5M2VhNmQxNmIzYzlmZDVhMGJiYjA1ZTU4MzAzNDlmZmYzIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6IkhiVkk2TStiMUtDdjNpOHBHTzVGZ1E9PSIsInZhbHVlIjoidlRBd0pxNzhXV1IxN2RjbWtNZktURjRKaVFxSEJPZG44Mnk1ZWlKTzBsRlJvMFpqQmVJMWdPNkdxV2kxb2ZnenJRSG56NlRsdzZuQSsyRjFPNWVUbzVnMGJnMmVpKzhRSG9mVWxYWlc5aFhYMWkvR0R6SjJoZW1XZ2RQeDlSUUYiLCJtYWMiOiJkYTI4MDM4NWM0ZmZmZmZlN2RiNDcwNDNhMWQyMzc5ZWVhMzExZTkzNDgyYmFlMTU5ZTNlNDcxODNlNzc5ODY5IiwidGFnIjoiIn0%3D",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{link}}/platforms/5/toggle-active",
+							"host": [
+								"{{link}}"
+							],
+							"path": [
+								"platforms",
+								"5",
+								"toggle-active"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "3|c1rqIhCkImVkyPD1Fx3wx2ejXke2aMvqP6XBkbV5c040db42",
+			"type": "default"
+		}
+	]
+}

@@ -121,13 +121,13 @@
 
                     <!-- Status -->
                     <div>
-                        <label for="is_active" class="block text-sm font-medium text-gray-700">Status</label>
+                        <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
                         <div class="mt-1">
                             <label class="inline-flex items-center">
                                 <input type="checkbox" 
-                                    name="is_active" 
+                                    name="status" 
                                     value="1"
-                                    {{ old('is_active', isset($platform) ? ($platform->status == 'active' ? 1 : 0) : 0) ? 'checked' : '' }}
+                                    {{ old('status', isset($platform) ? ($platform->status == 'active' ? 1 : 0) : 0) ? 'checked' : '' }}
                                     class="p-2 rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                                 <span class="ml-2 text-sm text-gray-600">Active</span>
                             </label>

@@ -1,81 +1,61 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Platform;
-use Illuminate\Http\Request;
+use App\Services\PlatformService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 
 class PlatformController extends Controller
 {
-    public function index()
+    protected $platformService;
+
+    public function __construct(PlatformService $platformService)
     {
-        $platforms = Platform::all();
-        $userPlatforms = Auth::user()->platforms()->pluck('platforms.id')->toArray();
+        $this->platformService = $platformService;
+    }
+
+    /**
+     * Get all platforms with user's active status
+     */
+    public function index(): JsonResponse
+    {
+        $platforms = $this->platformService->getActive();
+        $userPlatforms = $this->platformService->getConnectedPlatforms(Auth::user());
 
         $platforms = $platforms->map(function ($platform) use ($userPlatforms) {
-            $platform->is_active = in_array($platform->id, $userPlatforms);
+            $platform->is_active = $userPlatforms->contains($platform->id);
             return $platform;
         });
 
-        return view('platforms.index', compact('platforms'));
+        return response()->json($platforms);
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'type' => 'required|string|in:twitter,instagram,linkedin'
-        ]);
-
-        $platform = Platform::create($request->all());
-        return redirect()->route('platforms.index')->with('success', 'Platform created successfully');
-    }
-
-    public function show(Platform $platform)
-    {
-        return view('platforms.show', compact('platform'));
-    }
-
-    public function update(Request $request, Platform $platform)
-    {
-        $request->validate([
-            'name' => 'sometimes|required|string|max:255',
-            'type' => 'sometimes|required|string|in:twitter,instagram,linkedin'
-        ]);
-
-        $platform->update($request->all());
-        return redirect()->route('platforms.index')->with('success', 'Platform updated successfully');
-    }
-
-    public function destroy(Platform $platform)
-    {
-        $platform->delete();
-        return redirect()->route('platforms.index')->with('success', 'Platform deleted successfully');
-    }
-
-    public function toggle(Platform $platform)
+    /**
+     * Toggle platform active status for the authenticated user
+     */
+    public function toggleActive(Platform $platform): JsonResponse
     {
         $user = Auth::user();
         
-        if ($user->platforms()->where('platforms.id', $platform->id)->exists()) {
-            $user->platforms()->detach($platform->id);
-            $message = 'Platform deactivated successfully';
-        } else {
-            $user->platforms()->attach($platform->id);
-            $message = 'Platform activated successfully';
+        if($platform->user_id != $user->id){
+            return response()->json([
+                'success' => false,
+                'message' => "you are not the owner of this platform",
+            ]);
         }
 
-        return redirect()->route('platforms.index')->with('success', $message);
+        if ($platform->status == 'active') {
+            $platform->status = 'inActive';
+        }else{
+            $platform->status = 'active';
+        }
+        $platform->save();
+        return response()->json([
+            'success' => true,
+            'message' => 'platform toggled successfully to ' . $platform->status,
+        ]);
     }
-
-    protected function getCharacterLimit(string $type): ?int
-    {
-        return match ($type) {
-            'twitter' => 280,
-            'linkedin' => 3000,
-            default => null
-        };
-    }
-} 
+}

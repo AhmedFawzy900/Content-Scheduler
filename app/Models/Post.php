@@ -97,7 +97,10 @@ class Post extends Model
 
     public function getImageUrlAttribute()
     {
-        return asset('assets/images/post/' . $this->attributes['image_url']); // Use the public path with the image name
-        
+        if (isset($this->attributes['image_url']) && $this->attributes['image_url']) {
+            return asset('assets/images/post/' . $this->attributes['image_url']); // Use the public path with the image name
+        } else {
+            return null;
+        }
     }
 } 

@@ -12,6 +12,7 @@ interface PlatformServiceInterface
      * Get all platforms
      */
     public function getAll(): Collection;
+    public function getActive(): Collection;
 
     /**
      * Get connected platforms for a user

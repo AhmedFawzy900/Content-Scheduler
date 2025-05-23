@@ -41,4 +41,8 @@ class Platform extends Model
         return asset('assets/images/platform/' . $this->attributes['icon']); // Use the public path with the image name
         
     }
+
+    public function scopeActive($query){
+        return $query->where('status','active');
+    }
 } 

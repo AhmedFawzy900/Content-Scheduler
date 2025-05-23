@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Platform;
+namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePlatform extends FormRequest
+class UpdateProfile extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,11 +21,10 @@ class StorePlatform extends FormRequest
      */
     public function rules(): array
     {
+        $id = auth()->user()->id ?? null;
         return [
-            'name' => 'required|string|max:255',
-            'type' => 'required|string|in:twitter,facebook,instagram,linkedin',
-            'icon' => 'nullable|image|max:2048',
-            'status' => 'nullable',
+            'name' => 'sometimes|required|string|max:255',
+            'email' => 'sometimes|required|string|email|max:255|unique:users,email,' . $id,
         ];
     }
 }

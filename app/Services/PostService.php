@@ -94,6 +94,7 @@ class PostService implements PostServiceInterface
     public function create(array $data): Post
     {
         $user = User::findOrFail($data['user_id']);
+       
         return $this->createPost($data, $user);
     }
 
@@ -106,10 +107,6 @@ class PostService implements PostServiceInterface
     public function delete(int $id): bool
     {
         $post = Post::findOrFail($id);
-        
-        if ($post->image_url) {
-            $this->fileHelper->deleteFile($post->image_url);
-        }
         
         return $post->delete();
     }
@@ -127,7 +124,7 @@ class PostService implements PostServiceInterface
 
     public function updatePost(Post $post, array $data): Post
     {
-
+        
         $post->update($data);
 
         if (isset($data['platforms'])) {

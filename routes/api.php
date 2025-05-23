@@ -12,14 +12,15 @@ Route::post('/login', [AuthController::class, 'login']);
 // Protected routes
 Route::middleware('auth:sanctum')->group(function () {
     // // User Profile
-    // Route::get('/user', [AuthController::class, 'profile']);
-    // Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/user', [AuthController::class, 'profile']);
+    Route::post('/user', [AuthController::class, 'updateProfile']);
+    Route::post('/logout', [AuthController::class, 'logout']);
 
     // // Posts
-    // Route::apiResource('posts', PostController::class);
-    // Route::get('/posts/analytics', [PostController::class, 'analytics']);
+    Route::apiResource('posts-api', PostController::class);
+    Route::get('/posts/analytics', [PostController::class, 'analytics']);
 
     // // Platforms
-    // Route::get('/platforms', [PlatformController::class, 'index']);
-    // Route::post('/platforms/{platform}/toggle', [PlatformController::class, 'toggle']);
+   Route::get('/platforms', [PlatformController::class, 'index']);
+    Route::put('/platforms/{platform}/toggle-active', [PlatformController::class, 'toggleActive']);
 }); 

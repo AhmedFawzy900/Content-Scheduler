@@ -30,6 +30,11 @@ class PlatformController extends Controller
     public function store(StorePlatform $request)
     {
         $validated = $request->validated();
+        if (isset($validated['status'])) {
+            $validated['status'] = $request->status == 1 ? 'active' : 'inActive';
+        }else{
+            $validated['status'] = 'inActive';
+        }
         try{
             $validated['user_id'] = auth()->user()->id;
             $this->platformService->create($validated);
@@ -51,6 +56,12 @@ class PlatformController extends Controller
     public function update(StorePlatform $request, $id)
     {
         $validated = $request->validated();
+        if (isset($validated['status'])) {
+            $validated['status'] = $request->status == 1 ? 'active' : 'inActive';
+        }else{
+            $validated['status'] = 'inActive';
+        }
+
         try {
             $this->platformService->update($id, $validated);
             return redirect()->route('platforms.index')
